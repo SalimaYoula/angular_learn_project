@@ -1,0 +1,71 @@
+<p>inscription works!</p>
+<section id="tabs">
+	<div class="container">
+		<h6 class="section-title h1">Formulaire</h6>
+		<div class="row">
+			<div class="col-sm-12 ">
+				<nav>
+					<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+						<a class="nav-item nav-link" [ngClass]="{'active': nameTab == 'nav-home'}" id="nav-home-tab" data-toggle="tab" (click)="showTab('nav-home')" role="tab" aria-controls="nav-home" aria-selected="true">Candidat</a>
+						<a class="nav-item nav-link" [ngClass]="{'active': nameTab == 'nav-profile'}" id="nav-profile-tab" data-toggle="tab" (click)="showTab('nav-profile')" role="tab" aria-controls="nav-profile" aria-selected="false">Entreprise</a>
+					</div>
+				</nav>
+				<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+          <form [formGroup]="InscriptionForm" (ngSubmit)="onSubmit()">
+              <div class="row">
+                  <div class="col-sm-8 col-sm-offset-2">
+                      <h2>Créer un compte </h2>
+                        <div class="form-group">
+                          <label for="email">Adresse mail</label>
+                          <input type="text" id="email" class="form-control" formControlName="email">
+                        </div>
+                        <div class="form-group">
+                          <label for="password">Mot de passe</label>
+                          <input type="password" id="password" class="form-control" formControlName="password">
+                        </div>
+                      </div>
+              </div>
+					<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" *ngIf="nameTab == 'nav-home'">
+                        <div class="row">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                  <div class="form-group">
+                                        <label for="nom">Nom</label>
+                                        <input type="text" id="nom" class="form-control" formControlName="nom">
+                                  </div>
+                                   <div class="form-group">
+                                            <label for="prenom">Prenom</label>
+                                            <input type="text" id="prenom" class="form-control" formControlName="prenom">
+                                    </div>
+                                    
+                              </div>
+                          
+                            </div>
+          </div>
+       
+					<div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" *ngIf="nameTab == 'nav-profile'">
+                            <div class="row">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                       
+                                          <div class="form-group">
+                                            <label for="nomEntreprise">Nom de l'entreprise</label>
+                                            <input type="text" id="nomEntreprise" class="form-control" formControlName="nomEntreprise">
+                                          </div>
+                                      </div>
+                                  
+                                    </div>
+          </div>
+          <button class="btn btn-primary"
+          type="submit"
+          [disabled]="InscriptionForm.invalid">Créer mon compte</button>
+         <p class="text-danger">{{ errorMessage }}</p>
+        </form>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+

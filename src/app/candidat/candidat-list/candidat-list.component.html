@@ -1,0 +1,12 @@
+<p>candidat-list works!</p>
+<div class="container">
+    <div class="row">
+            <ul> 
+                    <li  *ngFor="let candidat of candidats; let i =index">
+                     {{ candidat.Nom}} - {{candidat.Prenom}}
+                            <a  [routerLink] ="['/Candidat_detail',i]">detail</a>                  
+                        </li>
+                  </ul>
+              
+    </div>
+</div>
