@@ -14,18 +14,21 @@ export class UserService {
       (resolve,reject)=>{
         firebase.auth().createUserWithEmailAndPassword(user.email,user.password).then(
           ()=>{
-            if(user.candidat != undefined)
+            if(user.candidat != undefined){
               firebase.database().ref('/candidat/'+id).set(user.candidat);
-            if(user.entreprise != undefined)
+            }
+            if(user.entreprise != undefined){
               firebase.database().ref('/entreprise/'+id).set(user.entreprise);
-            this.router.navigate(['/Accueil']);
-            resolve();
-          }
-        ),
-        (error)=>{
+            }
+             resolve();
+          },
+        (error:string) => {
           reject(error);
         }
-      }
-    )
+        
+    );
   }
+);
+}
+
 }

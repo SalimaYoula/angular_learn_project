@@ -1,98 +1,101 @@
-.nv {
-    background-color: white;
-    font-weight: 400;
-    font-size: 1rem;
-    font-family: "Barlow", sans-serif;
-    line-height: 1.6;
-    color: #EDF3F3;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+mat-sidenav {
+    width: 280px;
+    padding:15px;
+    background-image: url('../../assets/images/adneom.jpg');
 }
-html {
-    font-size: 14px;
-    background-color: wheat
-  }
-  
-  body {
-    font-weight: 400;
-    font-size: 1rem;
-    font-family: "Barlow", sans-serif;
-    line-height: 1.6;
-    color: #26304d;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizelegibility;
-    background-color: #fff;
-  }
-  
-  a {
-    color:red;
-    outline: none;
-  }
-  
-  a:focus,
-  a:hover {
-    color: white;
-  }
-  
-  .nav-link {
-    color: blue;
-  }
-  
-  .nav-link:focus,
-  .nav-link:hover {
-    color: white;
-  }
-.v{
-    background-image: url("https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg");
-   /* background-image: url("../../assets/images/logo3.png");
-    background-position: fixed;*/
-    background-repeat: no-repeat
-
+.mat-drawer { 
+    background-color: #023075;
+    color:#fff
 }
-.home-image-text-small{
-    color: green;
+.main-content {
+    padding:20px;
 }
-.home-image-text{
-    color: green;
+.toolbar-spacer {
+    flex: 1 1 auto;
 }
-.html{
-    background-attachment:fixed;
-    background-color: darkgrey
+.position-fixed{
+  position: fixed;
 }
-#carousel {
-
-    margin-top: 50px;
-
-}
-
-.carousel {
-    height: 500px;
-    margin-bottom: 60px;
-}
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-    z-index: 10;
-}
-
-/* Declare heights because of positioning of img element */
-.carousel .item {
-    width: 100%;
-    height: 500px;
-    background-color: #777;
-}
-.carousel-inner > .item > img {
-    position: absolute;
+mat-toolbar{
+  position: sticky;
     top: 0;
-    left: 0;
-    min-width: 100%;
-    height: 500px;
+    z-index: 1071
 }
-
-@media (min-width: 768px) {
-    .carousel-caption p {
-            margin-bottom: 20px;
-            font-size: 21px;
-            line-height: 1.4;
+a{
+    color: darkblue;
+}
+.container {
+    max-width: 960px;
+  }
+  
+  /*
+   * Custom translucent site header
+   */
+  
+  .site-header {
+    background-color: rgba(0, 0, 0, .85);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+  .site-header a {
+    color: #999;
+    transition: ease-in-out color .15s;
+  }
+  .site-header a:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /*
+   * Dummy devices (replace them with your own or something else entirely!)
+   */
+  
+  .product-device {
+    position: absolute;
+    right: 10%;
+    bottom: -30%;
+    width: 300px;
+    height: 540px;
+    background-color: #333;
+    border-radius: 21px;
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+  }
+  
+  .product-device::before {
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    bottom: 10%;
+    left: 10px;
+    content: "";
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+  }
+  
+  .product-device-2 {
+    top: -25%;
+    right: auto;
+    bottom: 0;
+    left: 5%;
+    background-color: #e5e5e5;
+  }
+  
+  
+  /*
+   * Extra utilities
+   */
+  
+  .flex-equal > * {
+    -ms-flex: 1;
+    flex: 1;
+  }
+  @media (min-width: 768px) {
+    .flex-md-equal > * {
+      -ms-flex: 1;
+      flex: 1;
     }
-}
+  }
+  
+  .overflow-hidden { overflow: hidden; }

@@ -1,25 +1,32 @@
-<div class="container my-4">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark nv">
-            <div class="container-fluid">
-              <ul class="nav navbar-nav">
-                <a class="navbar-brand" href="#"><img src="../../assets/images/logo2.jpg" height="30" alt="mdb logo">
-                </a>
-                <li routerLinkActive="active">
-                  <a routerLink="home"></a>
-                </li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right">
-                <li routerLinkActive="active">
-                  <a class="u-link-v5 u-shadow-v19 g-color-white--hover g-bg-white g-bg-primary--hover g-font-size-14 text-uppercase g-rounded-20 g-px-18 g-py-8 g-ml-10" routerLink="auth/inscription">Trouver un emploi</a>
-                </li>
-                <li routerLinkActive="active">
-                  <a class="u-link-v5 u-shadow-v19 g-color-white--hover g-bg-white g-bg-primary--hover g-font-size-14 text-uppercase g-rounded-20 g-px-18 g-py-8 g-ml-10" routerLink="auth/connexion">Connexion</a>
-                </li>
-              <!--  <li>
-                  <a (click)="onSignOut()" style="cursor:pointer" *ngIf="isAuth">Déconnexion</a>
-                </li>-->
-              </ul>
-            </div>
-          </nav>
-    </div>
-    
+
+    <mat-sidenav-container>
+    <mat-sidenav mode="side" #sidenav opened position="start" fixedInViewport="true">
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar color="primary" class="position-fixed">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <a routerLink="/accueil">
+        <img src="../../assets/images/logo2.jpg" height="30" alt="Africa Talent">
+      </a>
+        <span class="toolbar-spacer"></span>
+        <div fxLayout="row" fxLayoutAlign="end" >
+            <a mat-button routerLinkActive="active" fxFlex="auto" routerLink="Entreprise">Entreprise</a>
+            <a mat-button routerLinkActive="active" fxFlex="auto" routerLink="auth/inscription" *ngIf="!isAuth">Trouver un emploi</a>
+            <a mat-button routerLinkActive="active" fxFlex="auto" routerLink="auth/connexion" *ngIf="!isAuth">Connexion</a>
+            <a mat-button fxFlex="auto" (click)="deconnexion()" style="cursor:pointer"  *ngIf="isAuth">Déconnexion</a>
+            <a mat-button fxFlex="auto"  style="cursor:pointer"  *ngIf="isAuth">{{email}}</a>
+        </div>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+
+
+
+
+  
+        
+   

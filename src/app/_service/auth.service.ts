@@ -25,6 +25,6 @@ export class AuthService {
 
   }
   signOut(){
-    firebase.auth().signOut;
+    firebase.auth().signOut();
   }
 }

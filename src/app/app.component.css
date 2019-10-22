@@ -1,0 +1,10 @@
+Style Attribute {
+    box-shadow: none;
+    visibility: inherit;
+  }
+  .mat-drawer-inner-container{
+    visibility:visible;
+  }
+  mat-sidenav{
+      visibility: visible;
+  }

@@ -1,71 +1,86 @@
-<p>inscription works!</p>
-<section id="tabs">
-	<div class="container">
-		<h6 class="section-title h1">Formulaire</h6>
-		<div class="row">
-			<div class="col-sm-12 ">
-				<nav>
-					<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-						<a class="nav-item nav-link" [ngClass]="{'active': nameTab == 'nav-home'}" id="nav-home-tab" data-toggle="tab" (click)="showTab('nav-home')" role="tab" aria-controls="nav-home" aria-selected="true">Candidat</a>
-						<a class="nav-item nav-link" [ngClass]="{'active': nameTab == 'nav-profile'}" id="nav-profile-tab" data-toggle="tab" (click)="showTab('nav-profile')" role="tab" aria-controls="nav-profile" aria-selected="false">Entreprise</a>
-					</div>
-				</nav>
-				<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-          <form [formGroup]="InscriptionForm" (ngSubmit)="onSubmit()">
-              <div class="row">
-                  <div class="col-sm-8 col-sm-offset-2">
-                      <h2>Créer un compte </h2>
-                        <div class="form-group">
-                          <label for="email">Adresse mail</label>
-                          <input type="text" id="email" class="form-control" formControlName="email">
-                        </div>
-                        <div class="form-group">
-                          <label for="password">Mot de passe</label>
-                          <input type="password" id="password" class="form-control" formControlName="password">
-                        </div>
-                      </div>
-              </div>
-					<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" *ngIf="nameTab == 'nav-home'">
-                        <div class="row">
-                            <div class="col-sm-8 col-sm-offset-2">
-                                  <div class="form-group">
-                                        <label for="nom">Nom</label>
-                                        <input type="text" id="nom" class="form-control" formControlName="nom">
-                                  </div>
-                                   <div class="form-group">
-                                            <label for="prenom">Prenom</label>
-                                            <input type="text" id="prenom" class="form-control" formControlName="prenom">
+
+<div class="row featurette">
+  <div class="row featurette">
+    <div class="col-md-7 order-md-2">
+      <section id="tabs">
+          <div class="container">
+            <h6 class="section-title h1 text-center"></h6>
+            <div class="row">
+              <div class="col-sm-12">
+                <nav>
+                  <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link" [ngClass]="{'active': nameTab == 'nav-home'}" id="nav-home-tab" data-toggle="tab" (click)="showTab('nav-home')" role="tab" aria-controls="nav-home" aria-selected="true">Candidat</a>
+                    <a class="nav-item nav-link" [ngClass]="{'active': nameTab == 'nav-profile'}" id="nav-profile-tab" data-toggle="tab" (click)="showTab('nav-profile')" role="tab" aria-controls="nav-profile" aria-selected="false">Entreprise</a>
+                  </div>
+                </nav>
+                <div class="tab-content py-3 px-3 px-sm-0 align-center" id="nav-tabContent">
+                  <form [formGroup]="InscriptionForm" (ngSubmit)="onSubmit()" class="g-py-15">
+                      <div class="row">
+                          <div class="col-sm-10 col-sm-offset-2">
+                              <br>
+                              <h4 class="text-center g-color-black mb-4">Créer un compte {{nameUserType}}</h4>
+                              <br>
+                                    <div class="form-group">
+                                        <label for="email">Adresse mail</label>
+                                        <input type="text" id="email" class="form-control" formControlName="email">
+                             
+                                      <span class="text-danger">{{errorMessageEmailEntreprise}} </span>
+                                      <p class="text-danger">{{ errorMessage }}</p>
                                     </div>
-                                    
+                              
+                                <div class="form-group">
+                                  <label for="password">Mot de passe</label>
+                                  <input type="password" id="password" class="form-control" formControlName="password">
+                                </div>
                               </div>
-                          
-                            </div>
-          </div>
-       
-					<div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" *ngIf="nameTab == 'nav-profile'">
-                            <div class="row">
-                                    <div class="col-sm-8 col-sm-offset-2">
-                                       
+                      </div>
+                  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" *ngIf="nameTab == 'nav-home'">
+                                <div class="row">
+                                    <div class="col-sm-10 col-sm-offset-2">
                                           <div class="form-group">
-                                            <label for="nomEntreprise">Nom de l'entreprise</label>
-                                            <input type="text" id="nomEntreprise" class="form-control" formControlName="nomEntreprise">
+                                                <label for="nom">Nom</label>
+                                                <input type="text" id="nom" class="form-control" formControlName="nom">
                                           </div>
+                                           <div class="form-group">
+                                                    <label for="prenom">Prenom</label>
+                                                    <input type="text" id="prenom" class="form-control" formControlName="prenom">
+                                            </div>
+                                            
                                       </div>
                                   
                                     </div>
+                  </div>
+               
+                  <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" *ngIf="nameTab == 'nav-profile'">
+                                    <div class="row">
+                                            <div class="col-sm-10 col-sm-offset-2">
+                                               
+                                                  <div class="form-group">
+                                                    <label for="nomEntreprise">Nom de l'entreprise</label>
+                                                    <input type="text" id="nomEntreprise" class="form-control" formControlName="nomEntreprise">
+                                                  </div>
+                                              </div>
+                                          
+                                            </div>
+                  </div>
+                <div class="col-sm-10 col-sm-offset-4">
+                  <button class="btn btn-md btn-block btn-info rounded text-uppercase "
+                  type="submit"
+                  [disabled]="InscriptionForm.invalid">S'inscrire</button>
+               <br>
+                <p class="g-font-size-13 text-center mb-0" routerLinkActive="active">Déjà un compte? <a class="g-font-weight-600" routerLink="../../auth/connexion">Connexion</a>
+                </p>
+                 
+                </div>
+                </form>
+                </div>
+              </div>
+            </div>
           </div>
-          <button class="btn btn-primary"
-          type="submit"
-          [disabled]="InscriptionForm.invalid">Créer mon compte</button>
-         <p class="text-danger">{{ errorMessage }}</p>
-        </form>
-				</div>
-			
-			</div>
-		</div>
-	</div>
-</section>
-
-
-
-
+        </section>
+    </div>
+    <div class="col-md-5 order-md-0">
+      <img class="featurette-image img-fluid mx-auto" src="../../../assets/images/900x900/img7.jpg" alt="Generic placeholder image">
+    </div>
+  </div>
+  

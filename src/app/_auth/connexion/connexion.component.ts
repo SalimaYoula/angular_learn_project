@@ -9,9 +9,12 @@ import { Router } from '@angular/router';
   templateUrl: './connexion.component.html',
   styleUrls: ['./connexion.component.css']
 })
+
 export class ConnexionComponent implements OnInit {
   ConnexionForm: FormGroup;
   errorMessage: string;
+  userType: boolean;
+
  
   constructor(private authservice:AuthService,private formbuilder:FormBuilder,private router:Router) { }
 
@@ -25,18 +28,35 @@ export class ConnexionComponent implements OnInit {
    })
   }
 
+  get f() { return this.ConnexionForm.controls; }
+
   onSubmit(){
-    const email =this.ConnexionForm.get('email').value;
-    const password = this.ConnexionForm.get('password').value;
+    const email = this.f.email.value;
+    const password = this.f.password.value;
     let user = new User(email,password);
     this.authservice.signIn(user).then(
       () => {
-       // this.router.navigate(['/Candidat']);
+        this.verifUserType(email);
+        if(this.userType)
+          this.router.navigate(['/Candidat']);
+        else
+          this.router.navigate(['/list_Candidat']);
       },
       (error) => {
         this.errorMessage = error;
       }
     )
+  }
 
+  private verifUserType(email:string){
+    let nomDomaine: string = (email.split('@'))[1].split('.')[0]; // recuperation de la partie apres @
+    let listeDomaineGenerique: string[] = ['gmail','facebook','twitter','hotmail','gmx','yahoo','live'];
+    if(listeDomaineGenerique.includes(nomDomaine)){
+      this.userType = true
+    }
+    else{
+      this.userType = false
+    }
+  
   }
 }

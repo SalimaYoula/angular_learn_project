@@ -16,7 +16,13 @@ import { UserService } from './_service/user.service';
 import { CandidatComponent } from './candidat/candidat.component';
 import { CandidatListComponent } from './candidat/candidat-list/candidat-list.component';
 import { CandidatDetailComponent } from './candidat/candidat-detail/candidat-detail.component';
-
+// angular material
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTabsModule} from '@angular/material/tabs';
+import { MatCardModule,MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule,MatFormFieldModule, MatDividerModule, MatGridListModule } from  '@angular/material';
+import { FooterComponent } from './footer/footer.component';
+import { AuthGuardService } from './_service/auth-guard.service';
+import { EntrepriseComponent } from './entreprise/entreprise.component';
 
 @NgModule({
   declarations: [
@@ -27,10 +33,13 @@ import { CandidatDetailComponent } from './candidat/candidat-detail/candidat-det
     HomeComponent,
     CandidatComponent,
     CandidatListComponent,
-    CandidatDetailComponent
+    CandidatDetailComponent,
+    FooterComponent,
+    EntrepriseComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -38,13 +47,24 @@ import { CandidatDetailComponent } from './candidat/candidat-detail/candidat-det
       { path: 'auth/connexion', component: ConnexionComponent },
       { path: 'auth/inscription', component: InscriptionComponent },
       { path: 'Accueil', component: HomeComponent },
-      { path: 'Candidat', component: CandidatComponent },
-      { path: 'List_Candidat', component: CandidatListComponent },
-      { path: 'Candidat_detail/:id', component: CandidatDetailComponent },
+      { path: 'Entreprise',canActivate:[AuthGuardService], component:EntrepriseComponent},
+      { path: 'Candidat',canActivate:[AuthGuardService], component: CandidatComponent },
+      { path: 'List_Candidat',canActivate:[AuthGuardService], component: CandidatListComponent },
+      { path: 'Candidat_detail/:id',canActivate:[AuthGuardService],component: CandidatDetailComponent },
       { path: '', redirectTo: 'Accueil' ,pathMatch: 'full'},
       { path: '**', redirectTo: 'Accueil'},
       
-    ])
+    ]),
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatListModule,
+    MatTabsModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatGridListModule,
+    MatDividerModule
   ],
   providers: [
     AuthService,

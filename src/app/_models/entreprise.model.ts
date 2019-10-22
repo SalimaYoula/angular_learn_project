@@ -3,7 +3,7 @@ export class Entreprise{
     siret: number;
     nbEmploye: number;
     private _profil: string;
-    public constructor(nomEntreprise){
+    public constructor(nomEntreprise:string){
         this.nomEntreprise =nomEntreprise;
     }
     public get profil(): string {
