@@ -20,8 +20,8 @@ export class InscriptionComponent implements OnInit,AfterViewInit {
   InscriptionForm: FormGroup;
   errorMessage: string;
   errorMessageEmailEntreprise: string;
-  nameTab = 'nav-home';
-  isfinish = false;
+  nameTab:string = 'nav-home';
+  isfinish:boolean = false;
   nameUserType = 'candidat';
 
   constructor(private userService:UserService,private formbuilder:FormBuilder, private router: Router,private candidat:CandidatService,private entreprise:EntrepriseService) { }
@@ -75,6 +75,8 @@ export class InscriptionComponent implements OnInit,AfterViewInit {
 private createUser(user:User,datas:Candidat[] | Entreprise[]){
   this.userService.create(user,datas.length).then(
     () => {
+
+      console.log(user.candidat+' dans appel service')
       if(user.candidat != undefined)
        this.router.navigate(['/Accueil']);
       if(user.entreprise != undefined)

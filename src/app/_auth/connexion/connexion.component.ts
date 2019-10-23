@@ -3,6 +3,9 @@ import { AuthService } from 'src/app/_service/auth.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { User } from '../../_models/user.model';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase';
+import { CandidatService } from 'src/app/_service/candidat.service';
+import { Candidat } from 'src/app/_models/candidat.model';
 
 @Component({
   selector: 'app-connexion',
@@ -14,11 +17,17 @@ export class ConnexionComponent implements OnInit {
   ConnexionForm: FormGroup;
   errorMessage: string;
   userType: boolean;
-
+  candidats:Candidat[] =[] ;
  
-  constructor(private authservice:AuthService,private formbuilder:FormBuilder,private router:Router) { }
+  constructor(private authservice:AuthService,private formbuilder:FormBuilder,private router:Router, private candidatservices:CandidatService) { }
 
   ngOnInit() {
+    this.candidatservices.getAll();
+    this.candidatservices.candidat$.subscribe(
+      data=>{
+        this.candidats =data;
+      }
+    ); 
     this.initForm();  
   }
   initForm() {
@@ -37,8 +46,10 @@ export class ConnexionComponent implements OnInit {
     this.authservice.signIn(user).then(
       () => {
         this.verifUserType(email);
-        if(this.userType)
-          this.router.navigate(['/Candidat']);
+        if(this.userType){
+          let connectedUserIdC = this.getConnectUserId(this.candidats,firebase.auth().currentUser.uid)
+          this.router.navigate(['/Candidat',connectedUserIdC]);
+        }
         else
           this.router.navigate(['/List_Candidat']);
       },
@@ -48,6 +59,14 @@ export class ConnexionComponent implements OnInit {
     )
   }
 
+
+ getConnectUserId(candidats:Candidat[],connectedUserId:string):number{
+   let i:number = 0;
+    while(candidats[i].id != connectedUserId){
+      i += 1;
+    }
+    return i;
+    }
   private verifUserType(email:string){
     let nomDomaine: string = (email.split('@'))[1].split('.')[0]; // recuperation de la partie apres @
     let listeDomaineGenerique: string[] = ['gmail','facebook','twitter','hotmail','gmx','yahoo','live'];

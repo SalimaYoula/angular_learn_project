@@ -1,4 +1,5 @@
 export class Entreprise{
+    id : string;
     nomEntreprise: string;
     siret: number;
     nbEmploye: number;

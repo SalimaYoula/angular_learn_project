@@ -48,7 +48,7 @@ import { EntrepriseComponent } from './entreprise/entreprise.component';
       { path: 'auth/inscription', component: InscriptionComponent },
       { path: 'Accueil', component: HomeComponent },
       { path: 'Entreprise',canActivate:[AuthGuardService], component:EntrepriseComponent},
-      { path: 'Candidat',canActivate:[AuthGuardService], component: CandidatComponent },
+      { path: 'Candidat/:id',canActivate:[AuthGuardService], component: CandidatComponent },
       { path: 'List_Candidat',canActivate:[AuthGuardService], component: CandidatListComponent },
       { path: 'Candidat_detail/:id',canActivate:[AuthGuardService],component: CandidatDetailComponent },
       { path: '', redirectTo: 'Accueil' ,pathMatch: 'full'},

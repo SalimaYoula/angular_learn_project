@@ -1,5 +1,5 @@
 export class Candidat{
-    id: number;
+    id: string;
     Nom: string;
     Prenom: string;
     public constructor(nom: string,prenom: string){

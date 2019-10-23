@@ -48,6 +48,8 @@ export class CandidatService {
       }
     );
   }
+
+ 
   delete(candidat: Candidat) {
     const candidatIndexToRemove = this.candidats.findIndex(
       (candidatS) => {
