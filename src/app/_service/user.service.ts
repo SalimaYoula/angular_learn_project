@@ -34,4 +34,14 @@ export class UserService {
 );
 }
 
+ verifUserType(email:string):boolean{
+  let nomDomaine: string = (email.split('@'))[1].split('.')[0]; // recuperation de la partie apres @
+  let listeDomaineGenerique: string[] = ['gmail','facebook','twitter','hotmail','gmx','yahoo','live'];
+  if(listeDomaineGenerique.includes(nomDomaine)){
+    return true
+  }
+  else{
+    return false;
+  }
+}
 }

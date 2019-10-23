@@ -21,7 +21,7 @@ export class InscriptionComponent implements OnInit,AfterViewInit {
   errorMessage: string;
   errorMessageEmailEntreprise: string;
   nameTab:string = 'nav-home';
-  isfinish:boolean = false;
+  userType:boolean = false;
   nameUserType = 'candidat';
 
   constructor(private userService:UserService,private formbuilder:FormBuilder, private router: Router,private candidat:CandidatService,private entreprise:EntrepriseService) { }
@@ -69,13 +69,16 @@ export class InscriptionComponent implements OnInit,AfterViewInit {
       let entreprise = new Entreprise(nomEntreprise);
           entreprise.nomEntreprise =  nomEntreprise;
           user.entreprise = entreprise;
-          this.verifEmailEntreprise(email,user,this.entreprises);
+         this.userType = this.userService.verifUserType(email);
+         if(this.userType)
+            this.errorMessage = "Veuillez utiliser votre email entreprise";
+         else
+            this.createUser(user,this.entreprises);
     }
   }
 private createUser(user:User,datas:Candidat[] | Entreprise[]){
   this.userService.create(user,datas.length).then(
     () => {
-
       console.log(user.candidat+' dans appel service')
       if(user.candidat != undefined)
        this.router.navigate(['/Accueil']);
@@ -86,20 +89,6 @@ private createUser(user:User,datas:Candidat[] | Entreprise[]){
       this.errorMessage = error;
     }
   );
-
-}
-
-// verify is the email address is for an entreprise
-private verifEmailEntreprise(email:string,user,datas:Candidat[] | Entreprise[]){
-  let nomDomaine: string = (email.split('@'))[1].split('.')[0]; // recuperation de la partie apres @
-  let listeDomaineGenerique: string[] = ['gmail','facebook','twitter','hotmail','gmx','yahoo','live'];
-  
-  if(listeDomaineGenerique.includes(nomDomaine)){
-    this.errorMessage = "veuillez utiliser votre email entreprise";
-  }
-  else{
-    this.createUser(user,datas);
-  }
 
 }
 

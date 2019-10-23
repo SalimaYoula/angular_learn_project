@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { CandidatService } from 'src/app/_service/candidat.service';
 import { Candidat } from 'src/app/_models/candidat.model';
+import { UserService } from 'src/app/_service/user.service';
 
 @Component({
   selector: 'app-connexion',
@@ -19,7 +20,7 @@ export class ConnexionComponent implements OnInit {
   userType: boolean;
   candidats:Candidat[] =[] ;
  
-  constructor(private authservice:AuthService,private formbuilder:FormBuilder,private router:Router, private candidatservices:CandidatService) { }
+  constructor(private userService:UserService ,private authservice:AuthService,private formbuilder:FormBuilder,private router:Router, private candidatservices:CandidatService) { }
 
   ngOnInit() {
     this.candidatservices.getAll();
@@ -45,7 +46,7 @@ export class ConnexionComponent implements OnInit {
     let user = new User(email,password);
     this.authservice.signIn(user).then(
       () => {
-        this.verifUserType(email);
+        this.userType = this.userService.verifUserType(email);
         if(this.userType){
           let connectedUserIdC = this.getConnectUserId(this.candidats,firebase.auth().currentUser.uid)
           this.router.navigate(['/Candidat',connectedUserIdC]);
@@ -67,15 +68,4 @@ export class ConnexionComponent implements OnInit {
     }
     return i;
     }
-  private verifUserType(email:string){
-    let nomDomaine: string = (email.split('@'))[1].split('.')[0]; // recuperation de la partie apres @
-    let listeDomaineGenerique: string[] = ['gmail','facebook','twitter','hotmail','gmx','yahoo','live'];
-    if(listeDomaineGenerique.includes(nomDomaine)){
-      this.userType = true
-    }
-    else{
-      this.userType = false
-    }
-  
-  }
 }
