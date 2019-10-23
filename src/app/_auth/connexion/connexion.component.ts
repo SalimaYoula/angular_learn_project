@@ -40,7 +40,7 @@ export class ConnexionComponent implements OnInit {
         if(this.userType)
           this.router.navigate(['/Candidat']);
         else
-          this.router.navigate(['/list_Candidat']);
+          this.router.navigate(['/List_Candidat']);
       },
       (error) => {
         this.errorMessage = error;
