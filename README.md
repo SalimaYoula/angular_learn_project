@@ -16,7 +16,7 @@ Pour faire tourner ce projet en local, vous avez besoin d'installez les outils s
 # ANGULAR/CLI
   npm install -g @angular/cli
   
- Le css est basée sur bootstrap mais j'integre progressivement angular material pour aussi comprendre son fonctionnement
+ Le css est basé sur bootstrap mais j'intègre progressivement angular material pour aussi comprendre son fonctionnement
 
 # Angular material
 
