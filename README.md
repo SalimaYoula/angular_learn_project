@@ -1,6 +1,7 @@
-# Recrutement
+# Recrutement: 
 
-Ce projet a été genere avec [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3
+Ce projet a été genere avec [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3. Cette application met en relation les recruteurs et les candidats, il est en cours de developpement et sera regulierement mise à jour. 
+
 
 # Installation des outils
 
@@ -12,27 +13,21 @@ Pour faire tourner ce projet en local, vous avez besoin d'installez les outils s
 # NPM
   NPM est un package manager qui permet l’installation d’énormément d’outils et de libraries. Ouvrez une ligne de commande et   tapez la commande suivante: npm install -g npm@latest
 
+# ANGULAR/CLI
+  npm install -g @angular/cli
+  
+# firebase:
+ Dans ce projet, firebase a ete utilise comme backend pour le stockage et la recuperation des donnees dans la database. Pour     l'installez, veuillez executer cette commande dans le terminal: npm install firebase --save
+ 
+## Server de developpement 
 
-## Development server
+Exécutez `ng serve` pour un serveur de développement. Accédez à `http: // localhost: 4200 /`. L'application sera automatiquement rechargée si vous modifiez l'un des fichiers source.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+Pour plus d’informations, vous pourrez trouver la documentation de chaque élément sur le site correspondant :
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+node.js : https://nodejs.org/en/docs/
 
-## Build
+npm : https://docs.npmjs.com/
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ng : https://cli.angular.io/
