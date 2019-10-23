@@ -16,8 +16,18 @@ Pour faire tourner ce projet en local, vous avez besoin d'installez les outils s
 # ANGULAR/CLI
   npm install -g @angular/cli
   
+ Le css est basée sur bootstrap mais j'integre progressivement angular material pour aussi comprendre son fonctionnement
+
+# Angular material
+
+  ng add @angular/material
+  
+# Bootstrap
+
+  npm install bootstrap
+
 # firebase:
- Dans ce projet, firebase a ete utilise comme backend pour le stockage et la recuperation des donnees dans la database. Pour     l'installez, veuillez executer cette commande dans le terminal: npm install firebase --save
+ Dans ce projet, firebase a été utilise comme backend pour le stockage et la recuperation des donnees dans la database. Pour     l'installez, veuillez executer cette commande dans le terminal: npm install firebase --save
  
 ## Server de developpement 
 
@@ -31,3 +41,7 @@ node.js : https://nodejs.org/en/docs/
 npm : https://docs.npmjs.com/
 
 ng : https://cli.angular.io/
+
+material : https://material.angular.io/
+
+bootstrap : 
