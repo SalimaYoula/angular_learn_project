@@ -1,6 +1,17 @@
 # Recrutement
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3.
+Ce projet a été genere avec [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3
+
+# Installation des outils
+
+Pour faire tourner ce projet en local, vous avez besoin d'installez les outils suivant
+
+## Téléchargez et installez la dernière version LTS de Node.js ici :
+    https://nodejs.org/en/download/
+    
+# NPM
+  NPM est un package manager qui permet l’installation d’énormément d’outils et de libraries. Ouvrez une ligne de commande et   tapez la commande suivante: npm install -g npm@latest
+
 
 ## Development server
 
