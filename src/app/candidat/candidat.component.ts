@@ -6,7 +6,7 @@ import { Candidat } from '../_models/candidat.model';
 @Component({
   selector: 'app-candidat',
   templateUrl: './candidat.component.html',
-  styleUrls: ['./candidat.component.css','../../assets/css/unify-core.css',"../../assets/css/unify-components.css","../../assets/css/unify-globals.css"]
+  styleUrls: ['./candidat.component.css']
 })
 export class CandidatComponent implements OnInit {
 candidat: Candidat;

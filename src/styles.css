@@ -209,4 +209,120 @@ body {padding-top: 70px; margin: 0; font-family: Roboto, "Helvetica Neue", sans-
 	-ms-transform: translate(-50%, 0);
 	transform: translate(-50%, 0);
 }
+[class*="u-timeline-v1-wrap"]::before, [class*="u-timeline-v2-wrap"]::before, [class*="u-timeline-v3-wrap"]::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: block;
+}
+[class*="u-timeline-v1-wrap"], [class*="u-timeline-v2-wrap"], [class*="u-timeline-v3-wrap"] {
+    position: relative;
+}
+.g-height-18 {
+  height: 18px;
+}
+.g-width-18 {
+  width: 18px !important;
+}
+.g-brd-gray-light-v4 {
+  border-color: #eee !important;
+}
+.g-brd-4 {
+  border-width: 4px !important;
+}
+.g-brd-around {
+  border: solid 1px transparent !important;
+}
 
+.g-bg-primary{
+  background-color: #72c02c !important;
+}
+
+.rounded-circle {
+  border-radius: 50% !important;
+}
+@media (min-width: 768px){
+.u-timeline-v2__icon{
+    font-size: 16px;
+    position: absolute;
+}
+}
+.g-bg-primary {
+  background-color: #72c02c !important;
+}
+
+@media (min-width: 0){
+.g-mb-15{
+    margin-bottom: 1.07143rem !important;
+}
+}
+@media (min-width: 0){
+.g-mb-15 {
+    margin-bottom: 1.07143rem !important;
+}
+}
+.g-bg-gray-light-v5 {
+  background-color: #f7f7f7 !important;
+}
+
+@media (min-width: 768px){
+.g-pa-10--md {
+    padding: 0.71429rem !important;
+}
+}
+
+@media (min-width: 768px){
+.g-pr-40--md {
+    padding-right: 2.85714rem !important;
+}}
+
+@media (min-width: 768px){
+.g-mb-0--md {
+    margin-bottom: 0 !important;
+}
+}
+@media (min-width: 768px){
+.g-mb-0--md {
+    margin-bottom: 0 !important;
+}}
+
+@media (min-width: 0)
+{.g-mb-20 {
+    margin-bottom: 1.42857rem !important;
+}}
+@media (min-width: 0){
+.g-mb-20 {
+    margin-bottom: 1.42857rem !important;
+}
+}
+
+@media (min-width: 768px){
+.u-timeline-v2__icon {
+    font-size: 16px;
+    position: absolute;
+}}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+@media (min-width: 768px){
+.g-orientation-left .u-timeline-v2__icon {
+    right: 100%;
+    transform: translateX(50%);
+}}
+
+@media (min-width: 768px){
+.u-timeline-v2__icon {
+    font-size: 16px;
+    position: absolute;
+}}
+
+li:first-child .u-dot-line-v2::before, li:first-child {
+    display: none;
+}

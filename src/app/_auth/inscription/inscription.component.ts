@@ -47,7 +47,7 @@ export class InscriptionComponent implements OnInit,AfterViewInit {
   }
   initForm() {
     this.InscriptionForm = this.formbuilder.group({
-      email: ['',Validators.required],
+      email: ['',Validators.required,Validators.email],
       password: ['',[Validators.required,Validators.minLength(6)]],
       nom: ['',Validators.required],
       prenom: ['',[Validators.required,Validators.minLength(6)]],

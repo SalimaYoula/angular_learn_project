@@ -31,6 +31,7 @@ export class ConnexionComponent implements OnInit {
     ); 
     this.initForm();  
   }
+ 
   initForm() {
    this.ConnexionForm = this.formbuilder.group({
      email: ['',Validators.required],

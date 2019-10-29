@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-candidat-list',
   templateUrl: './candidat-list.component.html',
-  styleUrls: ['./candidat-list.component.css','../../../assets/css/unify-core.css',"../../../assets/css/unify-components.css","../../../assets/css/custom.css","../../../assets/css/unify-globals.css"]
+  styleUrls: ['./candidat-list.component.css']
 })
 export class CandidatListComponent implements OnInit,AfterViewInit {
  

@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConnexionComponent } from './_auth/connexion/connexion.component';
@@ -23,6 +22,9 @@ import { MatCardModule,MatToolbarModule, MatIconModule, MatSidenavModule, MatLis
 import { FooterComponent } from './footer/footer.component';
 import { AuthGuardService } from './_service/auth-guard.service';
 import { EntrepriseComponent } from './entreprise/entreprise.component';
+import { ResetpwdComponent } from './_auth/resetpwd/resetpwd.component';
+import { UserManagementComponent } from './_auth/user-management/user-management.component';
+import { UpdateCandidatComponent } from './candidat/update-candidat/update-candidat.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,10 @@ import { EntrepriseComponent } from './entreprise/entreprise.component';
     CandidatListComponent,
     CandidatDetailComponent,
     FooterComponent,
-    EntrepriseComponent
+    EntrepriseComponent,
+    ResetpwdComponent,
+    UserManagementComponent,
+    UpdateCandidatComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +51,8 @@ import { EntrepriseComponent } from './entreprise/entreprise.component';
     RouterModule.forRoot([
       { path: 'auth/connexion', component: ConnexionComponent },
       { path: 'auth/inscription', component: InscriptionComponent },
+      { path: 'auth/reset', component: ResetpwdComponent },
+      { path: 'auth/user', component: UserManagementComponent },
       { path: 'Accueil', component: HomeComponent },
       { path: 'Entreprise',canActivate:[AuthGuardService], component:EntrepriseComponent},
       { path: 'Candidat/:id',canActivate:[AuthGuardService], component: CandidatComponent },
